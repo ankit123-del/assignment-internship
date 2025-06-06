@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form align="center" style="background-color: greenyellow;" >
+        <fieldset>
+            <h4 style="color: red;" align="center">Personal Details</h4>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for=">password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+         <p>Choose your gender:</p>
+           <input type="radio" id="html" name="gender" value="Male">
+           <label for="html">Male</label>
+
+          <input type="radio" id="css" name="gender" value="Female">
+          <label for="css">Female</label><br><br>
+
+          <label for="number">Contact:</label>
+          <input type="tel" id="number" name="number" required><br><br>
+
+          <h4 style="color: red;"> Educational Information</h4>
+
+          <label for degree>Degree:</label>
+            <select id="degree" name="degree" required>
+                <option value="bachelor">Bachelor's</option>
+                <option value="master">Master's</option>
+                <option value="phd">PhD</option>
+                <option value="diploma">Diploma</option>
+                </select>
+            <br><br>
+
+            <label for="engname">Engineering Branch:</label>
+            <select id="engname" name="engname" required>
+                <option value="computer">Computer Science</option>
+                <option value="mechanical">Mechanical</option>
+                <option value="civil">Civil</option>
+                <option value="electrical">Electrical</option>
+
+            </select><br><br>
+
+             <p>Choose your hobbies:</p>
+           <input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+           <label for="hobby1">Reading</label>
+
+           <input type="checkbox" id="hobby2" name="hobbies" value="Traveling">
+           <label for="hobby2">Playing games</label><br><br>
+
+           <h4 style="color: aqua;">Address</h4>
+             <label for="address">Enter your address:</label>
+              <input type="text" id="address" name="address"><br><br>
+
+              <label for="file">Attach Resume:</label>
+              <input type="file" id="file" name="file"><br><br>
+
+              <button style="background-color: rgb(255, 167, 5);" type="submit">Submit</button>
+              </fieldset>
+    </form>
+</body>
+</html>
