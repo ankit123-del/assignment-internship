@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-Color Shadow Card</title>
+<style>
+    body {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 3px red,
+    5px 5px 0 3px orange,
+    10px 10px 0 3px yellow,
+    15px 15px 0 3px green,
+    20px 20px 0 3px blue,
+    0 0 0 -3px red,
+    5px 5px 0 -3px orange,
+    10px 10px 0 -3px yellow,
+    15px 15px 0 -3px green,
+    20px 20px 0 -3px blue;
+  transition: transform 0.3s ease;
+}
+
+.card p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card span {
+  font-size: 14px;
+  color: gray;
+}
+
+</style>
+</head>
+<body>
+  <div class="card">
+    <p>#61<br><span>by fossheim</span></p>
+  </div>
+</body>
+</html>
