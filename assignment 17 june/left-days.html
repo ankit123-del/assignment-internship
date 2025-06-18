@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Left Days</h1>
+    <div id="left-days"></div>
+    <script>
+        const now = new Date();
+        const endOfYear = new Date(now.getFullYear(), 11, 31);
+        const leftDays = Math.ceil((endOfYear - now) / (1000 * 60 * 60 * 24));
+
+        document.getElementById("left-days").innerText = `Days left in the year: ${leftDays}`;
+</script>
+</body>
+</html>

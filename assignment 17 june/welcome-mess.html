@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delayed Welcome Message</title>
+</head>
+<body>
+
+  <h2>Welcome Message  after 2 seconds:</h2>
+  <div id="welcomeMessage"></div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("welcomeMessage").innerText = "Welcome to the website!";
+    }, 2000); 
+  </script>
+
+</body>
+</html>

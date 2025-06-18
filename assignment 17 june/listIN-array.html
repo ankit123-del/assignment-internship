@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+  <div id="listContainer"></div>
+
+  <script>
+    const items = ["HTML", "CSS", "JS"];
+    let listHTML = "<ul>";
+
+    items.forEach(item => {
+      listHTML += `<li>${item}</li>`;
+    });
+
+    listHTML += "</ul>";
+
+    document.getElementById("listContainer").innerHTML = listHTML;
+  </script>
+
+</body>
+</html>
