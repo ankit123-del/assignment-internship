@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: linear-gradient(to right, #5f00c5, #c100ec);
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #ddd;
+        }
+
+        .dropdown:hover > a {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            position: relative;
+            max-width: 1100px;
+            margin: 50px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .card {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .card h1 {
+            font-size: 32px;
+            color: #0e4d92;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn1 {
+            background-color: #0e4d92;
+            color: white;
+        }
+
+        .btn1:hover {
+            background-color: #093b6f;
+        }
+
+        .btn2 {
+            background-color: #f0f0f0;
+            color: #0e4d92;
+            border: 2px solid #0e4d92;
+        }
+
+        .btn2:hover {
+            background-color: #e0e0e0;
+        }
+
+        .side-image {
+            width: 300px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .part3 {
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .part3-left img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .part3-right {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .part3-right h2 {
+            font-size: 28px;
+            color: #0e4d92;
+            margin-bottom: 10px;
+        }
+
+        .part3-right p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-box {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            text-align: center;
+            padding: 25px 15px;
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .service-box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .service-box p {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+            padding: 20px 40px;
+        }
+
+        .circle-btn {
+            width: 50px;
+            height: 50px;
+            background-color: #b185f5;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .circle-btn:hover {
+            background-color: #9c6dfd;
+            transform: scale(1.05);
+        }
+        .selast{
+            position: relative;
+            width: 2000px; /* set your desired width */
+            height: auto;
+        }
+        
+          .background-image {
+            height: 800px;
+              width: 100%; /* Full width of wrapper */
+      display: block;
+      background-size: cover;
+       height: 100vh; /* 100% of viewport height */
+  width: 100vw;  /* 100% of viewport width */
+  background-image: url('infos-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+    
+
+    .overlay-image {
+        position: absolute;
+        border-radius: 5%;
+      top: 50px;     /* Distance from top */
+      left: 20px;    /* Distance from left */
+      width: 35%;    /* 50% of background image's width */
+    }
+    .selast {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.background-image {
+    height: 800px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.overlay-image {
+    position: relative;
+    border-radius: 5%;
+    width: 35%;
+    z-index: 1;
+}
+
+.right-img {
+    width: 20%;
+    top: 200px;
+    z-index: 2;
+    background-color: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 12px;
+   
+        border-radius: 5%;
+       /* Distance from left */
+      width: 35%;    /* 50% of background image's width */
+    /* Remove flex */
+}
+
+
+.skills-wrapper {
+    margin-top: 30px;
+}
+
+.skill {
+    margin-bottom: 25px;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #5f00bf;
+    margin-bottom: 6px;
+}
+
+.bar {
+    width: 100%;
+    height: 12px;
+    background-color: #f3eaff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #5f00bf, #b100ff);
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <span class="logo-text">TALE</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Projects</a></li>
+        <li class="dropdown">
+            <a href="#">Pages ▾</a>
+            <section class="dropdown-content">
+                <a href="#">About Us</a>
+                <a href="#">Team</a>
+                <a href="#">Blog</a>
+            </section>
+        </li>
+        <li><a href="#">Infos</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container" style="display: flex;">
+    <div class="card" style="width: auto; margin-left: 3px;">
+        <h2>Startup SEO Agency</h2>
+        <hr style="border: 2px solid #42414100;">
+        <h1>Drive into The Seo<br> WORLD With Tale</h1><br><br>
+        <p>Unlock the potential of your online presence with our expert SEO services.</p>
+        <button class="btn1">Discover More</button>
+        <button class="btn2">Check your FAQs</button>
+    </div>
+    <img src="img99.jpg" alt="SEO Image" class="side-image">
+</div>
+
+<div class="part3">
+    <div class="part3-left">
+        <img src="happyclient-01.jpg" alt="Happy Client">
+    </div>
+    <div class="part3-right">
+        <h2>We Provide Different Services & <br>Features For Your Agency</h2>
+        <p>We have a proven track record of delivering results for our clients, helping them achieve their business goals through effective SEO strategies.</p>
+        <div class="services-grid">
+            <div class="service-box">
+                <img src="services-01.jpg" alt="SEO Trends">
+                <p>Discover More on current SEO Trends</p>
+            </div>
+            <div class="service-box">
+                <img src="services-02.jpg" alt="Big Data">
+                <p>Real-Time Big Data Analysis</p>
+            </div>
+            <div class="service-box">
+                <img src="services-03.jpg" alt="Prediction">
+                <p>Precise Data Analysis & Prediction</p>
+            </div>
+            <div class="service-box">
+                <img src="services-04.jpg" alt="Marketing">
+                <p>SEO Marketing & Social Media</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; padding: 30px;">
+    <h1>Discover Our Work AND Projects</h1>
+    <p>Explore our portfolio to see how we've helped businesses like yours achieve their online goals.</p>
+</div>
+
+<div class="nav-buttons">
+    <button class="circle-btn">&#10094;</button>
+    <button class="circle-btn">&#10095;</button>
+</div>
+<div class="image" style="display: flex;  gap: 20px">
+    <div class="image-container"><img src="projects-01.jpg" alt=""><h3>mobile app</h3></div>
+    <div class="image-container"><img src="projects-02.jpg" alt=""><h3>web design</h3></div>
+    <div class="image-container"><img src="projects-03.jpg" alt=""><h3>SEO optimization</h3></div>
+    <div class="image-container"><img src="projects-04.jpg" alt=""><h3>content marketing</h3></div>
+</div><br><br>
+<div class="selast">
+    <img class="background-image">
+    <img class="overlay-image" src="left-infos.jpg" alt="">
+    
+   <div class="right-img" style="width: fit-content; position: relative; top: 50px;height: 660px;">
+        <img src="infos-bg.jpg" alt="" style="width: 100%; border-radius: 5%;">
+    <h2>More About Us And What We<br> Offer</h2>
+    <hr>
+    <p>We are dedicated to providing top-notch<br> SEO services tailored to your business needs.<br> Our team of experts is committed to helping<br> you achieve your online goals.</p>
+
+    <div class="skills-wrapper">
+        <div class="skill">
+            <div class="label">
+                <span>Marketing</span>
+                <span>90%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" style="width: 90%;"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="label">
+                <span>Digital Media</span>
+                <span>80%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" style="width: 80%;"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="label">
+                <span>Social Media Managing</span>
+                <span>95%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" style="width: 95%;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
