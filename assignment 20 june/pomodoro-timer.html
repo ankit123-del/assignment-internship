@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .timer-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #timer {
+      font-size: 64px;
+      margin: 20px 0;
+    }
+
+    .session-label {
+      font-size: 20px;
+      color: #555;
+    }
+
+    .controls button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .indicators {
+      margin-top: 20px;
+    }
+
+    .indicator {
+      font-size: 24px;
+      margin: 0 4px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="timer-container">
+    <h1>Pomodoro Timer</h1>
+    <div class="session-label" id="session-label">Work</div>
+    <div id="timer">25:00</div>
+
+    <div class="controls">
+      <button onclick="startTimer()">Start</button>
+      <button onclick="pauseTimer()">Pause</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+
+    <div class="indicators" id="indicators">🔴 ⚪ ⚪ ⚪</div>
+  </div>
+
+  <script>
+    let workDuration = 25 * 60;
+    let shortBreakDuration = 5 * 60;
+    let longBreakDuration = 15 * 60;
+    let pomodoroLimit = 4;
+
+    let currentCycle = 0;
+    let isRunning = false;
+    let timer;
+    let timeLeft = workDuration;
+    let mode = 'work'; // 'work', 'shortBreak', 'longBreak'
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+      const seconds = (timeLeft % 60).toString().padStart(2, '0');
+      document.getElementById('timer').textContent = `${minutes}:${seconds}`;
+      document.getElementById('session-label').textContent =
+        mode === 'work' ? 'Work' : mode === 'shortBreak' ? 'Short Break' : 'Long Break';
+    }
+
+    function updateIndicators() {
+      const dots = Array(pomodoroLimit).fill('⚪');
+      for (let i = 0; i < currentCycle; i++) dots[i] = '🔴';
+      document.getElementById('indicators').innerHTML = dots.join(' ');
+    }
+
+    function switchMode() {
+      if (mode === 'work') {
+        currentCycle++;
+        if (currentCycle === pomodoroLimit) {
+          mode = 'longBreak';
+          timeLeft = longBreakDuration;
+          currentCycle = 0;
+        } else {
+          mode = 'shortBreak';
+          timeLeft = shortBreakDuration;
+        }
+      } else {
+        mode = 'work';
+        timeLeft = workDuration;
+      }
+      updateIndicators();
+      updateTimerDisplay();
+    }
+
+    function startTimer() {
+      if (!isRunning) {
+        isRunning = true;
+        timer = setInterval(() => {
+          timeLeft--;
+          if (timeLeft <= 0) {
+            switchMode();
+          }
+          updateTimerDisplay();
+        }, 1000);
+      }
+    }
+
+    function pauseTimer() {
+      isRunning = false;
+      clearInterval(timer);
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      mode = 'work';
+      currentCycle = 0;
+      timeLeft = workDuration;
+      updateIndicators();
+      updateTimerDisplay();
+    }
+
+    updateTimerDisplay();
+    updateIndicators();
+  </script>
+</body>
+</html>
