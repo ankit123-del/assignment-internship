@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Submit Project Report",
+      "description": "Finalize and email the project report.",
+      "date": "2025-05-07"
+    },
+    {
+      "id": "2",
+      "title": "Buy Groceries",
+      "description": "Milk, bread, eggs, and vegetables.",
+      "date": "2025-05-08"
+    }
+  ]
+}
